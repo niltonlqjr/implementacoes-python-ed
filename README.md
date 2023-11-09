@@ -6,7 +6,7 @@
 
 ####Já implementados:
 
-- Listas ligadas simples
+- Listas ligadas simples: implementacoes_listas/lista_ligada.py
 
 ### Árvores
 
