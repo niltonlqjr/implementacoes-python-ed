@@ -6,12 +6,16 @@
 
 #### Já implementados:
 
-- Lista ligada simples: implementacoes_listas/lista_ligada.py
-- Lista ligada com sentinela: implementacoes_listas/lista_sentinela.py
-- Lista ligada circular: implementacoes_listas/lista_circular.py
-- Lista duplamente ligada circular com sentinela: implementacoes/lista_dupla_circ_sent.py
+- Lista ligada simples: [a relative link](implementacoes_listas/lista_ligada.py)
+- Lista ligada com sentinela: [a relative link](implementacoes_listas/lista_sentinela.py)
+- Lista ligada circular: [a relative link](implementacoes_listas/lista_circular.py)
+- Lista duplamente ligada circular com sentinela: [a relative link](implementacoes/lista_dupla_circ_sent.py)
 
 ### Árvores
+
+### Hash
+
+### Ordenação
 
 
 
