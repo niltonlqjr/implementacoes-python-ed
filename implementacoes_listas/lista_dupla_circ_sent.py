@@ -43,7 +43,6 @@ class lista:
     def insere_ini(self, x: item) -> bool:
         if self.__busca(x.chave) == None:
             novo = no(x)
-            novo.dado = x
             novo.prox = self.__primeiro.prox
             novo.ant = self.__primeiro
             self.__primeiro.prox.ant = novo
@@ -56,7 +55,6 @@ class lista:
         if self.__busca(x.chave) == None:
             ult = self.__primeiro.ant
             novo = no(x)
-            novo.dado = x
             novo.prox = ult.prox
             ult.prox.ant = novo
             novo.ant = ult
@@ -74,7 +72,6 @@ class lista:
                 aux = aux.prox
             if cont == pos:
                 novo = no(x)
-                novo.dado = x
                 novo.prox = aux.prox
                 novo.ant = aux
                 aux.prox.ant = novo
