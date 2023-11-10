@@ -13,8 +13,12 @@ class no:
 
 @dataclass
 class lista:
-    __primeiro: no = no(item(None,None))
-    __ultimo: no = __primeiro
+    __primeiro: no = None 
+    __ultimo: no = None 
+
+    def __post_init__(self):
+        self.__primeiro = no(item(None,None))
+        self.__ultimo = self.__primeiro
 
     def vazia(self) -> bool:
         return self.__primeiro.prox == None
