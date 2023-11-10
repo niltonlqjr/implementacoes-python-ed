@@ -3,7 +3,7 @@ from dataclasses import *
 
 @dataclass
 class item:
-    chave: int | None
+    chave: int | None # optei por colocar None pois a sentinela irá armazenar um item(None, None)
     valor: float | None
 
 @dataclass
@@ -11,13 +11,10 @@ class no:
     dado: item
     prox: no = None
 
-RetornoBusca = item | None
-
 @dataclass
 class lista:
     __primeiro: no = no(item(None,None))
     __ultimo: no = __primeiro
-
 
     def vazia(self) -> bool:
         return self.__primeiro.prox == None
@@ -28,10 +25,10 @@ class lista:
             ptr = ptr.prox
         return ptr
 
-    def busca_item(self, chave: int) -> RetornoBusca:
+    def busca_item(self, chave: int) -> item | None:
         ptr = self.__busca(chave)
         if ptr != None:
-            return ptr.dado
+            return item(ptr.dado.chave, ptr.dado.valor) 
         else:
             return None
         
@@ -95,7 +92,7 @@ class lista:
             return True
         return False    
 
-    def mostra_lista(self):
+    def mostra(self):
         v = self.__primeiro.prox
         print('[ ',end='')
         while v != None:
