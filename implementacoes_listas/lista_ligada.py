@@ -105,13 +105,14 @@ class lista:
                 return True
         return False
 
-    def mostra(self):
-        v = self.__primeiro
-        print('[ ',end='')
+    def string(self) -> str:
+        v: no = self.__primeiro
+        l_str: str = '[ '
         while v != None:
-            print('(chave={0},valor={1}) '.format(v.dado.chave, v.dado.valor),end='')
+            l_str += '({0}, {1}) '.format(v.dado.chave, v.dado.valor)
             v = v.prox
-        print(']')
+        l_str += ']'
+        return l_str
         
 
     

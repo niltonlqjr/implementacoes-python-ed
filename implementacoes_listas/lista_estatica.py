@@ -78,7 +78,7 @@ class lista:
             return True
         return False
     
-    def string(self):
+    def string(self) -> str:
         l_str: str = '[ '
         for i in range(self.__tam):
             l_str += '({ch}, {val}) '.format(

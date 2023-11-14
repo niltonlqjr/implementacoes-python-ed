@@ -9,7 +9,7 @@ class item:
 @dataclass
 class no:
     dado: item
-    prox: no = None
+    prox: no = None 
 
 @dataclass
 class lista:
@@ -58,18 +58,17 @@ class lista:
             return True
         return False
 
-    def mostra(self):
+    def string(self) -> str:
+        l_str: str = '[ '
         if not self.vazia():
-            v = self.__ultimo.prox
-            print('[ ',end='')
+            v: no = self.__ultimo.prox
             while v != self.__ultimo:
-                print('(chave={0}, valor={1}) '.format(v.dado.chave, v.dado.valor),end='')
+                l_str += '({0}, {1}) '.format(v.dado.chave, v.dado.valor)
                 v = v.prox
-            print('((chave={0}, valor={1})) '.format(v.dado.chave, v.dado.valor),end='')
-            print(']')
+            l_str += '({0}, {1}) ]'.format(v.dado.chave, v.dado.valor)
         else:
-            print('[ ]')
-
+            l_str += ']'
+        return l_str        
         
 
 
