@@ -1,5 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from copy import deepcopy
 
 @dataclass
 class item:
@@ -31,10 +32,9 @@ class lista:
     def busca_item(self, chave:int) -> item | None:
         ptr = self.__busca(chave)
         if ptr != None:
-            ret = item(ptr.dado.chave, ptr.dado.valor)
+            return deepcopy(ptr.dado)
         else:
-            ret = None
-        return ret
+            return None
     
     def insere_ini(self, x:item) -> bool:
         if self.__busca(x.chave) == None:
