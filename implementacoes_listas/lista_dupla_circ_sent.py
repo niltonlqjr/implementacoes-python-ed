@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from copy import deepcopy
+
 @dataclass
 class item:
     chave: int | None
