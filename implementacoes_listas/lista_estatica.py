@@ -81,7 +81,6 @@ class lista:
     def string(self):
         l_str: str = '[ '
         for i in range(self.__tam):
-            print(i)
             l_str += '({ch}, {val}) '.format(
                 ch=self.__elementos[i].chave,
                 val=self.__elementos[i].valor)
