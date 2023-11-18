@@ -8,60 +8,55 @@ class item:
     chave: int
     valor: float
 
-@dataclass
 class lista:
-    __tam_max: int
-    __elementos: list[item]
-    __tam: int
-
-    def __init__(self, tam_max: int):
-        self.__tam = 0
-        self.__tam_max = tam_max
-        self.__elementos = [None] * tam_max
+    def __init__(self, tamanho: int):
+        self.tam: int = 0
+        self.tam_max: int = tamanho
+        self.elementos: list[item | None] = [None] * tamanho
     
     def vazia(self) -> bool:
-        return self.__tam == 0
+        return self.tam == 0
     
     def cheia(self) -> bool:
-        return self.__tam == self.__tam_max
+        return self.tam == self.tam_max
 
     def busca(self, ch: int) -> int:
-        for i in range(self.__tam):
-            if self.__elementos[i].chave == ch:
+        for i in range(self.tam):
+            if self.elementos[i].chave == ch:
                 return i
         return -1
 
     def busca_item(self, ch: int) -> item | None:
         idx = self.busca(ch)
         if idx != -1:
-            return deepcopy(self.__elementos[idx])
+            return deepcopy(self.elementos[idx])
         else:
             return None
 
     def insere_fim(self, x: item) -> bool:
         if (not self.cheia()) and (self.busca(x.chave) == -1):
-            self.__elementos[self.__tam] = deepcopy(x)
-            self.__tam += 1
+            self.elementos[self.tam] = deepcopy(x)
+            self.tam += 1
             return True
         return False
 
     def insere_pos(self, x: item, pos: int) -> bool:
-        if (not self.cheia()) and (pos <= self.__tam) and (self.busca(x.chave) == -1):
-            for i in range(self.__tam, pos, -1):
-                self.__elementos[i] = self.__elementos[i-1]
-            self.__elementos[pos] = deepcopy(x)
-            self.__tam += 1
+        if (not self.cheia()) and (pos <= self.tam) and (self.busca(x.chave) == -1):
+            for i in range(self.tam, pos, -1):
+                self.elementos[i] = self.elementos[i-1]
+            self.elementos[pos] = deepcopy(x)
+            self.tam += 1
             return True
         return False
 
     def __desloca(self, pos: int):
-        for i in range(pos+1, self.__tam):
-            self.__elementos[i-1] = self.__elementos[i]
+        for i in range(pos+1, self.tam):
+            self.elementos[i-1] = self.elementos[i]
         
 
     def remove_fim(self) -> bool:
         if not self.vazia():
-            self.__tam -= 1
+            self.tam -= 1
             return True
         return False
 
@@ -80,10 +75,10 @@ class lista:
     
     def string(self) -> str:
         l_str: str = '[ '
-        for i in range(self.__tam):
+        for i in range(self.tam):
             l_str += '({ch}, {val}) '.format(
-                ch=self.__elementos[i].chave,
-                val=self.__elementos[i].valor)
+                ch=self.elementos[i].chave,
+                val=self.elementos[i].valor)
         l_str += ']'
         return l_str
 

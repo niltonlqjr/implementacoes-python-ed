@@ -50,7 +50,3 @@ print(it2)
 
 it2.chave=99999999999
 print(l.string())
-
-chaves=[8872,8,3,12]
-print(l.string())
-
