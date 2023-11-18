@@ -7,23 +7,24 @@ class item:
     chave: int 
     valor: float 
 
-@dataclass
-class no:
-    dado: item
-    prox: no = None 
 
-@dataclass
+class no:
+    def __init__(self, x: item):
+        self.dado: item = x
+        self.prox: no | None = None 
+
 class lista:
-    __ultimo: no = None
+    def __init__(self):
+        self.ultimo: no | None = None
   
     def vazia(self) -> bool:
-        return self.__ultimo == None
+        return self.ultimo is None
 
-    def __busca(self, chave: int) -> no:
+    def busca(self, chave: int) ->  no | None:
         if self.vazia():
             return None
-        ptr = self.__ultimo.prox
-        while (ptr != self.__ultimo) and (ptr.dado.chave != chave):
+        ptr = self.ultimo.prox
+        while (ptr != self.ultimo) and (ptr.dado.chave != chave):
             ptr = ptr.prox
         if ptr.dado.chave == chave:
             return ptr
@@ -31,20 +32,20 @@ class lista:
             return None
         
     def busca_item(self, chave: int) -> item | None:
-        ptr = self.__busca(chave)
-        if ptr != None:
+        ptr: no | None = self.busca(chave)
+        if ptr is not None:
             return deepcopy(ptr.dado)
         else:
             return None
 
     def insere_ini(self, x: item) -> bool:
-        if self.__busca(x.chave) == None:
+        if self.busca(x.chave) is None:
             novo = no(x)
             if self.vazia():
-                self.__ultimo = novo
+                self.ultimo = novo
             else:
-                novo.prox = self.__ultimo.prox
-            self.__ultimo.prox = novo
+                novo.prox = self.ultimo.prox
+            self.ultimo.prox = novo
             return True
         else:
             return False
@@ -52,16 +53,16 @@ class lista:
     def insere_fim(self, x: item) -> bool:
         inseriu = self.insere_ini(x)
         if inseriu:
-            self.__ultimo=self.__ultimo.prox
+            self.ultimo=self.ultimo.prox
         return inseriu
 
 
     def remove_ini(self) -> bool:
         if not self.vazia():
-            rem = self.__ultimo.prox
-            self.__ultimo.prox = rem.prox
-            if rem == self.__ultimo:
-                self.__ultimo = None
+            rem = self.ultimo.prox
+            self.ultimo.prox = rem.prox
+            if rem == self.ultimo:
+                self.ultimo = None
             rem.prox = None
             return True
         return False
@@ -69,8 +70,8 @@ class lista:
     def string(self) -> str:
         l_str: str = '[ '
         if not self.vazia():
-            v: no = self.__ultimo.prox
-            while v != self.__ultimo:
+            v: no = self.ultimo.prox
+            while v != self.ultimo:
                 l_str += '({0}, {1}) '.format(v.dado.chave, v.dado.valor)
                 v = v.prox
             l_str += '({0}, {1}) ]'.format(v.dado.chave, v.dado.valor)
