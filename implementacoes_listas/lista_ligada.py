@@ -7,65 +7,64 @@ class item:
     chave: int
     valor: float
 
-@dataclass
-class no:
-    dado: item
-    prox: no = None #erro no mypy que não sei como resolver
-                    #tentei criar uma union "no | None"
-                    #porém o erro passa a ser algo no sentido dos campos
-                    #não existirem no tipo none
 
-@dataclass
+class no:
+    def __init__(self, x: item):
+        self.dado: item = x
+        self.prox: no | None = None 
+
+
 class lista:
-    __primeiro: no = None
-    __ultimo: no = None
+    def __init__(self):
+        self.primeiro: no | None = None
+        self.ultimo: no | None = None
     
     def vazia(self):
-        return self.__primeiro == None
+        return self.primeiro == None
     
-    def __busca(self, chave:int) -> no:
-        ptr = self.__primeiro
+    def busca(self, chave:int) -> no:
+        ptr = self.primeiro
         while (ptr != None) and (ptr.dado.chave != chave):
             ptr = ptr.prox
         return ptr
     
     def busca_item(self, chave:int) -> item | None:
-        ptr = self.__busca(chave)
+        ptr = self.busca(chave)
         if ptr != None:
             return deepcopy(ptr.dado)
         else:
             return None
     
     def insere_ini(self, x:item) -> bool:
-        if self.__busca(x.chave) == None:
+        if self.busca(x.chave) == None:
             novo = no(x)
             if self.vazia():
-                self.__ultimo = novo
-            novo.prox = self.__primeiro
-            self.__primeiro=novo
+                self.ultimo = novo
+            novo.prox = self.primeiro
+            self.primeiro=novo
             return True
         else:
             return False
 
     def insere_fim(self, x:item) -> bool:
-        if self.__busca(x.chave) == None:
+        if self.busca(x.chave) == None:
             novo = no(x)
             if self.vazia():
-                self.__primeiro=novo
+                self.primeiro=novo
             else:
-                self.__ultimo.prox=novo
+                self.ultimo.prox=novo
             novo.prox=None
-            self.__ultimo=novo
+            self.ultimo=novo
             return True
         else:
             return False
 
     def insere_pos(self, x:item, pos:int) -> bool:
         i=0
-        ptr=self.__primeiro
+        ptr=self.primeiro
         if pos == 0:
             return self.insere_ini(x)
-        elif self.__busca(x.chave) == None:
+        elif self.busca(x.chave) == None:
             while ptr!=None and i<pos-1:
                 ptr=ptr.prox
                 i+=1
@@ -73,24 +72,24 @@ class lista:
                 novo=no(x)
                 novo.prox = ptr.prox
                 if novo.prox == None:
-                    self.__ultimo=novo
+                    self.ultimo=novo
                 ptr.prox=novo
                 return True
         return False
 
     def remove_ini(self):
         if not self.vazia():
-            rem = self.__primeiro
-            self.__primeiro = self.__primeiro.prox
+            rem = self.primeiro
+            self.primeiro = self.primeiro.prox
             if self.vazia():
-                self.__ultimo = None
+                self.ultimo = None
             rem.prox = None
             return True
         return False
 
 
     def remove_chave(self, chave: int) -> bool:
-        ptr=self.__primeiro
+        ptr=self.primeiro
         if not self.vazia():
             if ptr.dado.chave == chave:
                 return self.remove_ini()
@@ -100,13 +99,13 @@ class lista:
                 exc = ptr.prox
                 ptr.prox = exc.prox
                 if ptr.prox == None:
-                    self.__ultimo=exc
+                    self.ultimo=exc
                 exc.prox=None
                 return True
         return False
 
     def string(self) -> str:
-        v: no = self.__primeiro
+        v: no = self.primeiro
         l_str: str = '[ '
         while v != None:
             l_str += '({0}, {1}) '.format(v.dado.chave, v.dado.valor)
