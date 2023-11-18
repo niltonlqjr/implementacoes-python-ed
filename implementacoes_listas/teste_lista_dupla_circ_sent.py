@@ -43,6 +43,8 @@ for ch in chaves:
     l.insere_fim(item(ch,7.0))
 print(l.string())
 
+print("=======buscas========")
+
 it1 = l.busca_item(45)
 print(it1)
 
@@ -52,6 +54,7 @@ print(it2)
 it2.chave=99999999999
 print(l.string())
 
+print("======= mais remocoes========")
 chaves=[8872,8,3,12]
 print(l.string())
 for ch in chaves:

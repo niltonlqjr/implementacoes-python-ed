@@ -7,54 +7,53 @@ class item:
     chave: int | None
     valor: float | None
 
-@dataclass
+
 class no:
-    dado: item
-    prox: no = None
-    ant: no = None
+    def __init__(self,x: item):
+        self.dado: item = x
+        self.prox: no | None = None
+        self.ant: no | None = None
 
-@dataclass
+
 class lista:
-    __primeiro: no = None
-
-    def __post_init__(self):
-        self.__primeiro = no(item(None, None))
-        self.__primeiro.prox = self.__primeiro
-        self.__primeiro.ant = self.__primeiro
+    def __init__(self):
+        self.primeiro = no(item(None, None))
+        self.primeiro.prox = self.primeiro
+        self.primeiro.ant = self.primeiro
     
     def vazia(self) -> bool:
-        return self.__primeiro.prox == self.__primeiro
+        return self.primeiro.prox == self.primeiro
 
-    def __busca(self, chave) -> no:
-        ptr = self.__primeiro.prox
-        while (ptr != self.__primeiro) and (ptr.dado.chave != chave):
+    def busca(self, chave) -> no | None:
+        ptr = self.primeiro.prox
+        while (ptr != self.primeiro) and (ptr.dado.chave != chave):
             ptr = ptr.prox
-        if ptr != self.__primeiro:
+        if ptr != self.primeiro:
             return ptr
         else:
             return None
 
     def busca_item(self, chave: int) -> item | None:
-        ptr = self.__busca(chave)
+        ptr = self.busca(chave)
         if ptr != None:
             return deepcopy(ptr.dado)
         else:
             return None
 
     def insere_ini(self, x: item) -> bool:
-        if self.__busca(x.chave) == None:
+        if self.busca(x.chave) == None:
             novo = no(x)
-            novo.prox = self.__primeiro.prox
-            novo.ant = self.__primeiro
-            self.__primeiro.prox.ant = novo
-            self.__primeiro.prox = novo
+            novo.prox = self.primeiro.prox
+            novo.ant = self.primeiro
+            self.primeiro.prox.ant = novo
+            self.primeiro.prox = novo
             return True
         else:
             return False
 
     def insere_fim(self, x: item) -> bool:
-        if self.__busca(x.chave) == None:
-            ult = self.__primeiro.ant
+        if self.busca(x.chave) == None:
+            ult = self.primeiro.ant
             novo = no(x)
             novo.prox = ult.prox
             ult.prox.ant = novo
@@ -65,10 +64,10 @@ class lista:
             return False
 
     def insere_pos(self, x: item, pos: int) -> bool:
-        if self.__busca(x.chave) == None:
-            aux = self.__primeiro
+        if self.busca(x.chave) == None:
+            aux = self.primeiro
             cont=0
-            while (cont < pos) and (aux != self.__primeiro.ant):
+            while (cont < pos) and (aux != self.primeiro.ant):
                 cont += 1
                 aux = aux.prox
             if cont == pos:
@@ -82,9 +81,9 @@ class lista:
             
     def remove_ini(self) -> bool:
         if not self.vazia():
-            rem = self.__primeiro.prox
-            self.__primeiro.prox = rem.prox
-            rem.prox.ant = self.__primeiro
+            rem = self.primeiro.prox
+            self.primeiro.prox = rem.prox
+            rem.prox.ant = self.primeiro
             rem.prox = None
             rem.ant = None
             return True
@@ -92,7 +91,7 @@ class lista:
             return False
 
     def remove_chave(self, chave: int) -> bool:
-        rem = self.__busca(chave)
+        rem = self.busca(chave)
         if rem != None:
             rem.prox.ant = rem.ant
             rem.ant.prox = rem.prox
@@ -103,9 +102,9 @@ class lista:
             return False
 
     def string(self) -> str:
-        v: no = self.__primeiro.prox
-        l_str: string = '[ '
-        while v != self.__primeiro:
+        v: no = self.primeiro.prox
+        l_str: str = '[ '
+        while v != self.primeiro:
             l_str += '({0}, {1}) '.format(v.dado.chave, v.dado.valor)
             v = v.prox
         l_str += ']'
