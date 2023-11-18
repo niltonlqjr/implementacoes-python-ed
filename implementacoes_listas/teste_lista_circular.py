@@ -33,12 +33,13 @@ while not l.vazia():
     l.remove_ini()
     print(l.string())
 
+print('======INSERCAO=======')
 chaves=[12,3,8]
 for ch in chaves:
     l.insere_fim(item(ch,7.0))
-print(l.string())
+    print(l.string())
 
-
+print('======BUSCA=======')
 it1 = l.busca_item(45)
 print(it1)
 

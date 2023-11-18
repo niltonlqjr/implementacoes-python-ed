@@ -18,7 +18,7 @@ class lista:
         self.ultimo: no | None = None
   
     def vazia(self) -> bool:
-        return self.ultimo is None
+        return self.ultimo == None
 
     def busca(self, chave: int) ->  no | None:
         if self.vazia():
@@ -33,13 +33,13 @@ class lista:
         
     def busca_item(self, chave: int) -> item | None:
         ptr: no | None = self.busca(chave)
-        if ptr is not None:
+        if ptr != None:
             return deepcopy(ptr.dado)
         else:
             return None
 
     def insere_ini(self, x: item) -> bool:
-        if self.busca(x.chave) is None:
+        if self.busca(x.chave) != None:
             novo = no(x)
             if self.vazia():
                 self.ultimo = novo
