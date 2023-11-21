@@ -51,7 +51,7 @@
 
 #### TODO
  - Selection sort
- - Insertion sort (apezar de estar disponível no shellsort, não segue o mesmo padrão dos demais métodos)
+ - Insertion sort (apesar de estar disponível no shellsort, não segue o mesmo padrão dos demais métodos)
  - Bubble sort
  - Counting sort
  - Radix sort
