@@ -3,14 +3,14 @@
 ## Implementações das estruturas vistas em sala na disciplina Estrutura de Dados ministrada para o curso de Informática da UEM.
 
 ### Pilhas e Filas
-
+ - Pilha dinâmica (com raise error): [implementacoes_pilha_fila/pilha_dinamica.py](implementacoes_pilha_fila/pilha_dinamica)
 #### Já Implementados
  - ...
 
 #### TODO
  - Implementar pilha estática (com raise error)
  - Implementar fila estática (com raise error)
- - Implementar pilha dinâmica (com raise error)
+ - Implementar 
  - Implementar fila dinâmica (com raise error)
 
 ### Listas
