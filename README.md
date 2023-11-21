@@ -9,8 +9,7 @@
 
 #### TODO
  - Implementar pilha estática (com raise error)
- - Implementar fila estática (com raise error)
- - Implementar 
+ - Implementar fila estática (com raise error) 
  - Implementar fila dinâmica (com raise error)
 
 ### Listas
