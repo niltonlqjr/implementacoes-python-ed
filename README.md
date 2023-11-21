@@ -6,9 +6,9 @@
 
 #### Já Implementados
  - Pilha dinâmica (com raise error): [implementacoes_pilha_fila/pilha_dinamica.py](implementacoes_pilha_fila/pilha_dinamica)
+ - Pilha estática (com raise error): [implementacoes_pilha_fila/pilha_estatica.py](implementacoes_pilha_fila/pilha_estatica)
 
 #### TODO
- - Implementar pilha estática (com raise error)
  - Implementar fila estática (com raise error) 
  - Implementar fila dinâmica (com raise error)
 
