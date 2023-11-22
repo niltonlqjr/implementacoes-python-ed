@@ -9,7 +9,7 @@ class item:
 
 class no:
     def __init__(self, x: item):
-        self.dado: item | None = x
+        self.dado: item = x
         self.prox: no | None = None
 
 class lista:
