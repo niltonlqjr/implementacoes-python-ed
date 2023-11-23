@@ -4,11 +4,11 @@ from copy import deepcopy
 
 @dataclass
 class item:
-    valor: int
+    valor: int | None
 
 class pilha:
     def __init__(self, tam_max: int):
-        self.elementos: list[item] = [item(0)] * tam_max
+        self.elementos: list[item] = [item(None)] * tam_max
         self.tam_max = tam_max
         self.topo = 0
 
