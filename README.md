@@ -5,10 +5,10 @@
 ### Pilhas e Filas
 
 #### Já Implementados
- - Pilha dinâmica (com raise error): [implementacoes_pilha_fila/pilha_dinamica.py](implementacoes_pilha_fila/pilha_dinamica)
- - Pilha estática (com raise error): [implementacoes_pilha_fila/pilha_estatica.py](implementacoes_pilha_fila/pilha_estatica)
- - Fila dinâmica (com raise error): [implementacoes_pilha_fila/fila_dinamica.py](implementacoes_pilha_fila/fila_dinamica)
- - Fila estática circular (com raise error): [implementacoes_pilha_fila/fila_estatica_circular.py](implementacoes_pilha_fila/fila_estatica_circular)
+ - Pilha dinâmica (com raise error): [implementacoes_pilha_fila/pilha_dinamica.py](implementacoes_pilha_fila/pilha_dinamica.py)
+ - Pilha estática (com raise error): [implementacoes_pilha_fila/pilha_estatica.py](implementacoes_pilha_fila/pilha_estatica.py)
+ - Fila dinâmica (com raise error): [implementacoes_pilha_fila/fila_dinamica.py](implementacoes_pilha_fila/fila_dinamica.py)
+ - Fila estática circular (com raise error): [implementacoes_pilha_fila/fila_estatica_circular.py](implementacoes_pilha_fila/fila_estatica_circular.py)
 
 
 ### Listas
