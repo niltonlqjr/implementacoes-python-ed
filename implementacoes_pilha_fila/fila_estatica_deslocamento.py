@@ -10,44 +10,40 @@ class item:
 class fila:
     def __init__(self, tam_max: int):
         self.tamanho = tam_max
-        self.inicio = 0
         self.fim = 0
         self.elementos: list[item] = [item(None)] * tam_max
     
-    def proximo_indice(self, i: int) -> int:
-        return (i+1) % self.tamanho
-    
     def vazia(self) -> bool:
-        return self.inicio == self.fim
+        return self.fim == 0
     
     def cheia(self) -> bool:
-        return self.proximo_indice(self.fim) == self.inicio
+        return self.fim == self.tamanho
     
     def enfileira(self, x: item):
         if self.cheia():
             raise ValueError('Fila cheia')
         else:
             self.elementos[self.fim] = deepcopy(x)
-            self.fim = self.proximo_indice(self.fim)
+            self.fim += 1
     
     def desenfileira(self):
         if self.vazia():
             raise ValueError('Fila vazia')
         else:
-            self.inicio = self.proximo_indice(self.inicio)
+            for i in range(1,self.fim):
+                self.elementos[i-1] = self.elementos[i]
+            self.fim -= 1
     
     def obtem_primeiro(self) -> item:
         if self.vazia():
             raise ValueError('Fila vazia')
         else:
-            return deepcopy(self.elementos[self.inicio])
+            return deepcopy(self.elementos[0])
     
     def string(self) -> str:
         s: str = '[ '
-        i: int = self.inicio
-        while i != self.fim:
-            s += '({0})'.format(self.elementos[i].valor)
-            i = self.proximo_indice(i)
+        for i in range(self.fim):
+            s += '({0}) '.format(self.elementos[i].valor)
         s += ']'
         return s
     
