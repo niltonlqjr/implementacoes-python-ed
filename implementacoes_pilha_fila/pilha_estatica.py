@@ -35,7 +35,7 @@ class pilha:
         if self.vazia():
             raise ValueError('Pilha Vazia')
         else:
-            return deepcopy(self.elementos[self.topo])
+            return deepcopy(self.elementos[self.topo-1])
             
     def string(self) -> str:
         s: str = '[ '
