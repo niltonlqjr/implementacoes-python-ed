@@ -8,7 +8,7 @@ class item:
 
 class pilha:
     def __init__(self, tam_max: int):
-        self.elementos: list[item] = [item(None)] * tam_max
+        self.elementos: list[item] = [item(None) for i in range(tam_max)]
         self.tam_max = tam_max
         self.topo = 0
 

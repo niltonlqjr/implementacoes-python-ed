@@ -12,7 +12,7 @@ class fila:
         self.tamanho = tam_max
         self.inicio = 0
         self.fim = 0
-        self.elementos: list[item] = [item(None)] * tam_max
+        self.elementos: list[item] = [item(None) for i in range(tam_max)]
     
     def proximo_indice(self, i: int) -> int:
         return (i+1) % self.tamanho
