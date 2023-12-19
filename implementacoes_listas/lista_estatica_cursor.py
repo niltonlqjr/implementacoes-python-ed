@@ -4,6 +4,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 queue_dir = os.path.join(dir_path,'../implementacoes_pilha_fila')
 sys.path.insert(1,queue_dir)
 
+'''acima estao os imports e declaracoes para colocar o caminho
+   da implementacao da fila na variavel de ambiente path'''
+   
 from dataclasses import dataclass
 from fila_estatica_circular import fila
 from copy import deepcopy
@@ -70,13 +73,3 @@ class lista:
             x = self.elementos[x].prox
         str+=']'
         return str
-            
-l=lista(5)
-for i in range(8):
-    l.insere_ini(item(i))
-    print(l.string())
-
-while not l.vazia():
-    l.remove_ini()
-    print(l.string())
-
