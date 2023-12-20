@@ -9,7 +9,7 @@
  - Pilha estática (com raise error): [implementacoes_pilha_fila/pilha_estatica.py](implementacoes_pilha_fila/pilha_estatica.py)
  - Fila dinâmica (com raise error): [implementacoes_pilha_fila/fila_dinamica.py](implementacoes_pilha_fila/fila_dinamica.py)
  - Fila estática circular (com raise error): [implementacoes_pilha_fila/fila_estatica_circular.py](implementacoes_pilha_fila/fila_estatica_circular.py)
-  - Fila estática com deslocamento (com raise error): [implementacoes_pilha_fila/fila_estatica_deslocamento.py](implementacoes_pilha_fila/fila_estatica_deslocamento.py)
+ - Fila estática com deslocamento (com raise error): [implementacoes_pilha_fila/fila_estatica_deslocamento.py](implementacoes_pilha_fila/fila_estatica_deslocamento.py)
 
 
 ### Listas
