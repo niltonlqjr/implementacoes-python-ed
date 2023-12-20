@@ -1,6 +1,5 @@
 from lista_estatica_cursor import *
 
-
 l=lista(20)
 
 print('======INSERCAO=======')
