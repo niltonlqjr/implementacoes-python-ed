@@ -69,7 +69,7 @@ class lista:
     def insere_pos(self, x: item, pos: int) -> bool:
         if not self.cheia():
             if pos == 0:
-                return self.insere_ini(deepcopy(x))
+                return self.insere_ini(x)
             else:
                 p: int = self.disponiveis.obtem_primeiro()
                 cur: int = self.primeiro
