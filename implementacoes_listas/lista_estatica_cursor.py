@@ -53,7 +53,7 @@ class lista:
             return None
     
     def insere_ini(self, x:item) -> bool:
-        if not self.cheia():
+        if not self.cheia() and self.busca(x.chave) == -1:
             pos: int = self.disponiveis.obtem_primeiro()
             self.elementos[pos] = no(deepcopy(x))
             self.elementos[pos].prox = self.primeiro
@@ -67,7 +67,7 @@ class lista:
         return self.insere_pos(x,self.num_itens)
 
     def insere_pos(self, x: item, pos: int) -> bool:
-        if not self.cheia():
+        if not self.cheia() and self.busca(x.chave) == -1:
             if pos == 0:
                 return self.insere_ini(x)
             else:
