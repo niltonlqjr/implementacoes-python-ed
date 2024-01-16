@@ -99,7 +99,7 @@ class lista:
                 exc = ptr.prox
                 ptr.prox = exc.prox
                 if ptr.prox == None:
-                    self.ultimo=exc
+                    self.ultimo=ptr
                 exc.prox=None
                 return True
         return False
