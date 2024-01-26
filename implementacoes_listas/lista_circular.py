@@ -39,7 +39,7 @@ class lista:
             return None
 
     def insere_ini(self, x: item) -> bool:
-        if self.busca(x.chave) != None:
+        if self.busca(x.chave) == None:
             novo = no(x)
             if self.vazia():
                 self.ultimo = novo
