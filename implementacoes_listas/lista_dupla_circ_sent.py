@@ -33,6 +33,7 @@ class lista:
         else:
             return None
 
+
     def busca_item(self, chave: int) -> item | None:
         ptr = self.busca(chave)
         if ptr != None:
@@ -42,7 +43,7 @@ class lista:
 
     def insere_ini(self, x: item) -> bool:
         if self.busca(x.chave) == None:
-            novo = no(x)
+            novo = no(deepcopy(x))
             novo.prox = self.primeiro.prox
             novo.ant = self.primeiro
             self.primeiro.prox.ant = novo
@@ -54,7 +55,7 @@ class lista:
     def insere_fim(self, x: item) -> bool:
         if self.busca(x.chave) == None:
             ult = self.primeiro.ant
-            novo = no(x)
+            novo = no(deepcopy(x))
             novo.prox = ult.prox
             ult.prox.ant = novo
             novo.ant = ult
@@ -71,7 +72,7 @@ class lista:
                 cont += 1
                 aux = aux.prox
             if cont == pos:
-                novo = no(x)
+                novo = no(deepcopy(x))
                 novo.prox = aux.prox
                 novo.ant = aux
                 aux.prox.ant = novo
