@@ -25,12 +25,11 @@
 ### Árvores
 
 #### Já Implementados
- - ...
+ - Árvore binária de Busca (ABB): [arvores/abb/abb.py](arvores/abb/abb.py)
+ - Árvore AVL: [arvores/avl/avl.py](arvores/avl/avl.py)
 
 #### TODO
  - Implementar árvore binária (inserção e remoção de nós folha)
- - Implementar ABB
- - Implementar AVL
 
 ### Hash
 
