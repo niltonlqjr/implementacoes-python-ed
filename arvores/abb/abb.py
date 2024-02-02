@@ -22,12 +22,29 @@ class arvore:
     def vazia(self):
         return self.raiz == None
 
-    def insere(self, x:item) -> bool:
+    def insere(self, x:item):
         self.raiz = self.insere_no(self.raiz, x)
-        
+    
+    def busca(self, ch:int) -> item | None:
+        no = self.busca_no(self.raiz, ch)
+        if no != None:
+            return no.dado
+        else:
+            return None
+    
     def remove(self, chave: int) -> bool:
         self.raiz = self.remove_no(self.raiz, chave)
 
+    def busca_no(self, n: no, chave:int) -> no | None:
+        if n == None:
+            return None
+        elif chave > n.dado.chave:
+            return self.busca_no(n.dir, chave)
+        elif chave < n.dado.chave:
+            return self.busca_no(n.esq, chave)
+        else:
+            return n
+        
     def insere_no(self, n: no , x: item) -> no | None:
         if n == None:
             n = no(deepcopy(x))
@@ -77,56 +94,3 @@ class arvore:
 
     def string(self):
         return self.string_ramo(self.raiz, 0)
-
-def menor(a):
-    if a == None:
-        m = None
-    elif a.esq == None:
-        m = a
-    else:
-        m=menor(a.esq)
-    return m
-
-
-
-def remove(a,chave):
-    if a != None:
-        if a.dado.chave < chave:
-            a.dir = remove(a.dir,chave)
-        elif a.dado.chave > chave:
-            a.esq = remove(a.esq,chave)
-        else:
-            if a.esq != None and a.dir != None:
-                q = menor(a.dir)
-                a.dado = q.dado
-                a.dir = remove(a.dir,q.dado.chave)
-            else:
-                if a.esq == None:
-                    a = a.dir
-                else:
-                    a = a.esq
-    return a
-        
-a1=arvore()
-a2=arvore()
-dados=[1,12,10, 29, 36, 5, 33, 27, 40, 4, 7, 20, 23, 35, 37,42,21,22,23]
-dados=[12,10, 22, 36, 5, 33, 27, 40, 4, 7, 20, 23, 35, 37,42,24]
-#dados = [5,3,9,2,4,7,10,1,2.5,3.5,4.5,6,8,9.5,11]
-#dados=[19,2,3,4,5,6,7,8,9,10,11,12,13,20]
-val=''
-
-for ch in dados:
-    x=item(ch,val)
-    a1.insere(x)
-    x=item(ch,val)
-    a2.insere(x)
-    print('===inseriu {0}==='.format(ch))
-    print(a1.string())
-    print('=================')
-
-       
-        
-
-
-
-
