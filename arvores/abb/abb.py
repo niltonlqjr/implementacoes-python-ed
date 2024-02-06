@@ -75,7 +75,7 @@ class arvore:
                 if n.esq == None:
                     n = n.dir
                 else:
-                    n = n.dir
+                    n = n.esq
         return n
     
     def string_ramo(self, n:no, nivel:int):

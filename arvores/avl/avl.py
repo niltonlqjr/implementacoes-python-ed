@@ -78,7 +78,7 @@ class arvore_avl:
                 if n.esq == None:
                     n = n.dir
                 else:
-                    n = n.dir
+                    n = n.esq
         return self.balanceia(n)
     
     def altura_no(self, n:no) -> int:
