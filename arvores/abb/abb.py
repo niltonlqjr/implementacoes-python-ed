@@ -59,7 +59,6 @@ class arvore:
             no_atual.esq = self.troca_e_remove(no_atual.esq, remover)
         else:
             remover.dado = no_atual.dado
-            remover = no_atual
             no_atual = no_atual.dir
         return no_atual
     
