@@ -32,7 +32,7 @@ class arvore:
         else:
             return None
     
-    def remove(self, chave: int) -> bool:
+    def remove(self, chave: int):
         self.raiz = self.remove_no(self.raiz, chave)
 
     def busca_no(self, n: no, chave:int) -> no | None:
@@ -72,7 +72,7 @@ class arvore:
             else:
                 if n.esq != None and n.dir != None:
                     n.dir = self.troca_e_remove(n.dir, n)
-                if n.esq == None:
+                elif n.esq == None:
                     n = n.dir
                 else:
                     n = n.esq
