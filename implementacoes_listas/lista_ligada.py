@@ -112,8 +112,3 @@ class lista:
             v = v.prox
         l_str += ']'
         return l_str
-        
-
-    
-
-
