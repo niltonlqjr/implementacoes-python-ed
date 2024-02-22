@@ -75,7 +75,7 @@ class arvore_avl:
             else:
                 if n.esq != None and n.dir != None:
                     n.dir = self.troca_e_remove(n.dir, n)
-                if n.esq == None:
+                elif n.esq == None:
                     n = n.dir
                 else:
                     n = n.esq
