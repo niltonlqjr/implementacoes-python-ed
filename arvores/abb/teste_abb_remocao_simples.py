@@ -1,4 +1,4 @@
-from abb import *
+from abb_remocao_simples import *
 
  
 a1=arvore()
