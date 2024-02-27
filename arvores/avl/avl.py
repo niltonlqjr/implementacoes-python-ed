@@ -121,6 +121,7 @@ class arvore_avl:
                 if self.altura_no(n.esq.dir) > self.altura_no(n.esq.esq):
                     n.esq = self.rotacao_esq(n.esq)
                 return self.rotacao_dir(n)
+            n.altura = self.altura_no(n)
         return n
     
     def string_ramo(self, n:no, nivel:int):
@@ -128,7 +129,7 @@ class arvore_avl:
         s += '  '*nivel
         s += '|____'
         if n != None:
-            s += str(n.dado.chave) +' - '+ str(n.altura) +'\n'
+            s += 'chave:' + str(n.dado.chave) +' - altura:'+ str(n.altura) +'\n'
         else:
             s += '\n'
         if n != None:

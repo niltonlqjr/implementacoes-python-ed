@@ -1,4 +1,4 @@
-from avl import *
+from avl_remocao_simples import *
 
  
 a1=arvore_avl()
