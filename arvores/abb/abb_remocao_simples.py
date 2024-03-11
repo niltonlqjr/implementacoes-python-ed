@@ -70,7 +70,7 @@ class arvore:
                 if n.esq != None and n.dir != None:
                     antecessor = self.maior(n.esq)
                     n.dado = antecessor.dado
-                    self.remove_no(n.esq, antecessor.dado.chave)
+                    n.esq = self.remove_no(n.esq, antecessor.dado.chave)
                 elif n.esq == None:
                     n = n.dir
                 else:
