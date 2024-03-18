@@ -13,4 +13,5 @@ def counting_sort(v: list[int]):
         contador[elemento] -= 1
     for i in range(n):
         v[i] = resposta[i]
+                        
 
